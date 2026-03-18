@@ -33,13 +33,13 @@ model.fit(X_train, y_train)
 st.title("🚀 Startup Profit Prediction & Analysis")
 
 # Create Tabs
-tab1, tab2, tab3 = st.tabs(["📊 Business Overview & EDA", "🤖 Profit Prediction", "⚖️ Statistical Evidence"])
+tab1, tab2, tab3 = st.tabs([" Business Overview & EDA", " Profit Prediction", " Statistical Evidence"])
 
 # ==========================================
 # TAB 1: Business Overview & Complete EDA
 # ==========================================
 with tab1:
-    st.header("📊 Complete Exploratory Data Analysis (EDA)")
+    st.header(" Complete Exploratory Data Analysis (EDA)")
     st.markdown(
         "A comprehensive breakdown of the historical data, combining high-level business trends with deep statistical correlations.")
 
@@ -56,7 +56,7 @@ with tab1:
     st.markdown("---")
 
     # --- Deep Dive Analysis: The Zero-Spend Anomalies ---
-    st.subheader("🔍 Deep Dive Analysis: The Zero-Spend Anomalies")
+    st.subheader(" Deep Dive Analysis: The Zero-Spend Anomalies")
 
     col_anomaly1, col_anomaly2 = st.columns(2)
     with col_anomaly1:
@@ -88,7 +88,7 @@ with tab1:
     st.markdown("---")
 
     # --- Correlation & Impact (Heatmap & Barplot) ---
-    st.subheader("🧩 Feature Correlation & Impact")
+    st.subheader(" Feature Correlation & Impact")
     st.markdown(
         "Here we use statistical heatmaps and impact scores to identify which spending category has the strongest linear relationship with profit.")
 
@@ -99,7 +99,7 @@ with tab1:
         sns.heatmap(df.select_dtypes(include=np.number).corr(), annot=True, cmap="coolwarm", fmt=".2f", linewidths=0.5,
                     ax=ax_corr)
         st.pyplot(fig_corr)
-        st.info("💡 **EDA Highlight:** The heatmap confirms R&D Spend has a massive **0.97 correlation** with Profit.")
+        st.info(" **EDA Highlight:** The heatmap confirms R&D Spend has a massive **0.97 correlation** with Profit.")
 
     with colB:
         st.markdown("**Department Impact Score**")
@@ -111,7 +111,7 @@ with tab1:
         ax_bar.set_ylabel("")
         st.pyplot(fig_bar)
         st.info(
-            "💡 **Insight:** Translating the heatmap into a bar chart clearly shows Administration spending has almost zero relationship with success.")
+            " **Insight:** Translating the heatmap into a bar chart clearly shows Administration spending has almost zero relationship with success.")
 
     st.markdown("---")
 
@@ -125,7 +125,7 @@ with tab1:
         ax_box.set_ylabel("Profit ($)")
         st.pyplot(fig_box)
         st.info(
-            "💡 **Insight:** The boxplot shows the total spread of profits. Notice how New York has the highest single outlier, while California's spread is slightly lower.")
+            " **Insight:** The boxplot shows the total spread of profits. Notice how New York has the highest single outlier, while California's spread is slightly lower.")
 
     with colD:
         st.markdown("**Average Profit by Region (Bar Chart)**")
@@ -135,12 +135,12 @@ with tab1:
         ax_avg.set_ylabel("Average Profit ($)")
         st.pyplot(fig_avg)
         st.info(
-            "💡 **Insight:** On average, Florida marginally outperforms New York and California, but the difference is statistically negligible compared to R&D spending.")
+            " **Insight:** On average, Florida marginally outperforms New York and California, but the difference is statistically negligible compared to R&D spending.")
 
     st.markdown("---")
 
     # --- The R&D Trend ---
-    st.subheader("📈 The R&D Effect: Visualizing the Growth")
+    st.subheader(" The R&D Effect: Visualizing the Growth")
     st.markdown("Every dot below is a startup. The red line shows the undeniable trend: more R&D equals more Profit.")
     fig_reg, ax_reg = plt.subplots(figsize=(10, 4))
     sns.regplot(x='R&D Spend', y='Profit', data=df, scatter_kws={'alpha': 0.6, 'color': '#1f77b4'},
@@ -151,7 +151,7 @@ with tab1:
     st.pyplot(fig_reg)
 
     # --- Expandable Data Analytics Table ---
-    with st.expander("📊 View Raw Descriptive Statistics"):
+    with st.expander(" View Raw Descriptive Statistics"):
         st.markdown(
             "This table shows the statistical distribution (Mean, Minimum, Maximum, and Percentiles) for all financial categories.")
         st.dataframe(df.describe().round(2))
@@ -185,13 +185,13 @@ with tab2:
     prediction = model.predict(input_df)[0]
 
     st.markdown("---")
-    st.success(f"### 📈 Estimated Profit: ${prediction:,.2f}")
+    st.success(f"###  Estimated Profit: ${prediction:,.2f}")
 
 # ==========================================
 # TAB 3: Statistical Evidence (DETAILED)
 # ==========================================
 with tab3:
-    st.header("⚖️ Statistical Evidence, Residuals & Reality")
+    st.header(" Statistical Evidence, Residuals & Reality")
     st.markdown("A deep dive into the mathematical proofs behind the model and a transparent look at its errors.")
 
     mae = mean_absolute_error(y_test, y_pred)
